@@ -1,10 +1,17 @@
+Posts:
 ✔ Show all posts @started(19-01-22 19:48) @done (22/01/2019, 21:21:42)
     ✔ with user information @done (22/01/2019, 21:55:01)
-☐ Show comments to posts 
-    ☐ with user info
-☐ create, update a user 
-☐ delete a user
-    ☐ cascade delete associated posts and comments when deleting user
-    ☐ send email confirming deletion
-        ☐ use template provided
-        ☐ email should be stored in laravel.log instead of sent
+✔ Show comments to posts @started(19-01-22 22:05) @done (22/01/2019, 22:21:29)
+    ✔ with user info @done (22/01/2019, 22:21:33)
+Show one post with:
+    ☐ post
+    ☐ user
+    ☐ comments
+user:
+    ☐ create
+    ☐ update
+    ☐ delete 
+        ☐ cascade delete associated posts and comments when deleting user
+        ☐ send email confirming deletion
+            ☐ use template provided
+            ☐ email should be stored in laravel.log instead of sent
