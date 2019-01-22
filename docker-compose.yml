@@ -5,11 +5,11 @@ services:
     image:
       mysql:5.7
     environment:
-      MYSQL_DATABASE: homesearch
+      MYSQL_DATABASE: addintel
       MYSQL_ROOT_PASSWORD: 'root'
     ports:
       - 3306:3306
-   volumes:
+    volumes:
       - db_data:/var/lib/mysql
 
 volumes:
