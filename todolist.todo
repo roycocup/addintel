@@ -1,0 +1,8 @@
+☐ Show posts with user information
+☐ Show comments to posts with user info
+☐ create, update a user 
+☐ delete a user
+    ☐ cascade delete associated posts and comments when deleting user
+    ☐ send email confirming deletion
+        ☐ use template provided
+        ☐ email should be stored in laravel.log instead of sent
