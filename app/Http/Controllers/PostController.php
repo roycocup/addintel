@@ -10,7 +10,7 @@ class PostController extends Controller
 {
     public function index()
     {   
-        $posts = Post::all()->sortBy(function($post, $key){
+        $posts = Post::with('user')->get()->sortBy(function($post, $key){
             return $post->created_at->timestamp;
         });
 

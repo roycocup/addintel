@@ -3,6 +3,7 @@
 namespace Tests\Feature;
 
 use App\Post;
+use App\User;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
@@ -41,5 +42,36 @@ class PostsTest extends TestCase
             "... post 2 ...", 
             ".. post 3 ...",
         ]);
+    }
+
+    public function test_a_post_has_an_associated_user()
+    {
+        $user = factory(User::class)->create([
+            'name' => 'Paul Athreides',
+            'email' => 'p.athreides@arrakis.du',
+        ]);
+        $post = factory(Post::class)->create([
+            'title' => 'The sleeper has awaken',
+            'user_id' => $user,
+        ]);
+        
+        $this->assertEquals('Paul Athreides', $post->user->name);
+        $this->assertEquals('p.athreides@arrakis.du', $post->user->email);
+    }
+
+
+    public function test_can_see_posts_with_authors_names()
+    {
+        $user = factory(User::class)->create([
+            'name' => 'Paul Athreides',
+            'email' => 'p.athreides@arrakis.du',
+        ]);
+        $post = factory(Post::class)->create([
+            'title' => 'The sleeper has awaken!',
+            'user_id' => $user,
+        ]);
+
+        $response = $this->get('/post');
+        $response->assertSeeText('The sleeper has awaken! -- Paul Athreides');
     }
 }

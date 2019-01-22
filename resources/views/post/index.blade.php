@@ -1,5 +1,8 @@
 @foreach ($posts as $post)
-    <p>{{ $post->title }}</p>
+    <p>
+        {{ $post->title }} -- {{ $post->user->name }}
+    </p>
+    
 @endforeach
 
 

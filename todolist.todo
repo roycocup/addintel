@@ -1,6 +1,7 @@
-☐ Show all posts @started(19-01-22 19:48)
-    ☐ with user information
-☐ Show comments to posts with user info
+✔ Show all posts @started(19-01-22 19:48) @done (22/01/2019, 21:21:42)
+    ✔ with user information @done (22/01/2019, 21:55:01)
+☐ Show comments to posts 
+    ☐ with user info
 ☐ create, update a user 
 ☐ delete a user
     ☐ cascade delete associated posts and comments when deleting user
