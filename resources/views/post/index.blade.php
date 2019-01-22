@@ -1,1 +1,5 @@
-<h1>Hi! I'm a post</h1>
+@foreach ($posts as $post)
+    <p>{{ $post->title }}</p>
+@endforeach
+
+
