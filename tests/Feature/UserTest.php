@@ -5,7 +5,7 @@ namespace Tests\Feature;
 use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
-use App\User;
+use App\{User, Post, Comment};
 
 class UserTest extends TestCase
 {
@@ -46,11 +46,37 @@ class UserTest extends TestCase
     {
         $user = factory(User::class)->create(['id' => 1,]);
 
-        $response = $this->delete('/user/1/delete');
-        $response->assertStatus(200);
-
+        $response = $this->delete('/user/1/delete')
+            ->assertStatus(200);
+    
         $this->assertDatabaseMissing('users', ['email' => $user->email,]);
     }
 
-    
+    public function test_deleting_user_cascades_to_posts_and_comments_authored()
+    {
+        $user = factory(User::class)->create(['id' => 1,]);
+        $post = factory(Post::class)->create(['user_id' => $user,]);
+        $comment = factory(Comment::class)->create([
+            'user_id' => $user, 
+            'post_id' => $post,
+        ]);
+
+        $this->assertDatabaseHas('posts', [
+            'title' => $post->title,
+            'user_id' => $user->id,
+        ]);
+
+        $this->assertDatabaseHas('comments', [
+            'user_id' => $user->id,
+            'post_id' => $post->id,
+        ]);
+
+
+        $response = $this->delete('/user/1/delete')->assertStatus(200);
+
+        $this->assertDatabaseMissing('users', ['id' => $user->id,]);
+        $this->assertDatabaseMissing('posts', ['id' => $post->id,]);
+        $this->assertDatabaseMissing('comments', ['id' => $comment->id,]);
+    }
+
 }

@@ -10,8 +10,9 @@ Show one post with:
 user:
     ✔ create @done(19-01-25 19:25)
     ✔ update @started(19-01-25 19:25) @done(19-01-25 20:17) @lasted(52m29s)
-    ☐ delete 
-        ☐ cascade delete associated posts and comments when deleting user
+    ✔ delete @done(19-01-25 20:27)
+        ✔ cascade delete associated posts @started(19-01-25 20:27) @done(19-01-25 20:43) @lasted(16m8s)
+        ☐ and comments when deleting user 
         ☐ send email confirming deletion
             ☐ use template provided
             ☐ email should be stored in laravel.log instead of sent
