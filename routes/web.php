@@ -17,3 +17,5 @@ Route::get('/', function(){
 
 Route::get('/post', 'PostController@index');
 Route::get('/post/{post_id}', 'PostController@show');
+
+Route::match(['get', 'post'], '/user/new', 'UserController@new');

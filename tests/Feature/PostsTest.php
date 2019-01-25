@@ -2,9 +2,8 @@
 
 namespace Tests\Feature;
 
-use App\Post;
-use App\User;
-use App\Comment;
+// php 7 allows for grouping of imports
+use App\{Post, User, Comment};
 use Tests\TestCase;
 use Illuminate\Support\Carbon;
 

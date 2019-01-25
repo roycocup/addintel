@@ -4,9 +4,9 @@ Posts:
 ✔ Show comments to posts @started(19-01-22 22:05) @done (22/01/2019, 22:21:29)
     ✔ with user info @done (22/01/2019, 22:21:33)
 Show one post with:
-    ☐ author
-    ☐ comments
-        ☐ comments with author
+    ✔ author @done (25/01/2019, 18:14:23)
+    ✔ comments @done (25/01/2019, 18:14:25)
+        ✔ comments with author @done (25/01/2019, 18:14:26)
 user:
     ☐ create
     ☐ update
