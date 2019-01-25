@@ -40,4 +40,17 @@ class UserTest extends TestCase
             'name' => 'updated name',
         ]);
     }
+
+
+    public function test_can_delete_user()
+    {
+        $user = factory(User::class)->create(['id' => 1,]);
+
+        $response = $this->delete('/user/1/delete');
+        $response->assertStatus(200);
+
+        $this->assertDatabaseMissing('users', ['email' => $user->email,]);
+    }
+
+    
 }

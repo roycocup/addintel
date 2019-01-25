@@ -15,8 +15,11 @@ Route::get('/', function(){
     return "<h1>AddIntel Test</h1>";
 });
 
+/** Post routes */
 Route::get('/post', 'PostController@index');
 Route::get('/post/{post_id}', 'PostController@show');
 
+/** User routes */
 Route::post('/user/new', 'UserController@new');
 Route::post('/user/{id}/update', 'UserController@update');
+Route::delete('/user/{id}/delete', 'UserController@delete');

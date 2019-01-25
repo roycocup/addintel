@@ -33,4 +33,11 @@ class UserController extends Controller
 
         return response()->json($confirm);
     }
+
+    public function delete($id)
+    {
+        $confirm = User::find($id)->forceDelete();
+        
+        return response()->json($confirm);
+    }
 }

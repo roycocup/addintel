@@ -9,7 +9,7 @@ Show one post with:
         ✔ comments with author @done (25/01/2019, 18:14:26)
 user:
     ✔ create @done(19-01-25 19:25)
-    ☐ update @started(19-01-25 19:25)
+    ✔ update @started(19-01-25 19:25) @done(19-01-25 20:17) @lasted(52m29s)
     ☐ delete 
         ☐ cascade delete associated posts and comments when deleting user
         ☐ send email confirming deletion
