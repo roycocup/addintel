@@ -11,4 +11,8 @@
 |
 */
 
+Route::get('/', function(){
+    return "<h1>AddIntel Test</h1>";
+});
+
 Route::get('/post', 'PostController@index');
