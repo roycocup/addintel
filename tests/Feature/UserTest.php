@@ -87,10 +87,11 @@ class UserTest extends TestCase
         
         Mail::fake();
         Mail::assertNothingSent();
+        
+        $this->delete('/user/1/delete');
 
         Mail::assertSent(UserDeleted::class, function ($mail) use ($user) {
-            return $mail->hasTo($user->email) &&
-                   $mail->user->id === $user->id;
+            return $mail->hasTo($user->email);
         });
     }
 

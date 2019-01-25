@@ -40,10 +40,11 @@ class UserController extends Controller
     {
         $user = User::find($id); 
         $confirm = $user->forceDelete();
-
+        
         if ($confirm){
             Mail::to($user)->send(new UserDeleted($user));
         }
+        
         return response()->json($confirm);
     }
 }
