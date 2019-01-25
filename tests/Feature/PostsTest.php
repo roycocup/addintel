@@ -74,7 +74,7 @@ class PostsTest extends TestCase
         $response->assertSeeText('The sleeper has awaken! -- Paul Athreides');
     }
 
-    public function test_posts_have_comments()
+    public function test_posts_has_comments()
     {
         
         $post = factory(Post::class)->create([
@@ -110,5 +110,21 @@ class PostsTest extends TestCase
         $this->assertEquals($rndStr[0], $comment1->text);
         $this->assertEquals($rndStr[2], $comment2->text);
         $this->assertEquals($rndStr[1], $comment3->text);
+    }
+
+    public function test_can_see_post_detail()
+    {   
+        $post = factory(Post::class)->create();
+        $comment = factory(Comment::class)->create([
+            'text' => 'this is a comment for a post',
+            'post_id' => $post,
+            'user_id' => $post->user,
+        ]);
+
+        $this->get('/post/1')
+            ->assertSee($post->title)
+            ->assertSee($post->user->name)
+            ->assertSee($post->comments[0]->user->name)
+            ;
     }
 }

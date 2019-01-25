@@ -16,4 +16,11 @@ class PostController extends Controller
 
         return view('post.index', compact('posts'));
     }
+
+    public function show($post_id)
+    {
+        $post = Post::find($post_id)->with('user')->first();
+        
+        return view('post.show', compact('post'));
+    }
 }
