@@ -23,5 +23,21 @@ class UserTest extends TestCase
         ]);
     }
 
+    public function test_can_update_user()
+    {
+        $user = factory(User::class)->create([
+            'id' => 1,
+            'name' => 'initial name',
+        ]);
 
+        $response = $this->post('/user/1/update', [
+            'name' => 'updated name',
+            'email' => $user->email,
+        ]);
+        $response->assertStatus(200);
+
+        $this->assertDatabaseHas('users', [
+            'name' => 'updated name',
+        ]);
+    }
 }

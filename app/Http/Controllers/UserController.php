@@ -21,5 +21,16 @@ class UserController extends Controller
         return response()->json($confirm);
     }
 
-    
+    public function update(Request $request, $id)
+    {
+        $name = $request->input('name');
+        $email = $request->input('email');
+
+        $confirm = User::find($id)->update([
+            'name' => $name,
+            'email' => $email,
+        ]);
+
+        return response()->json($confirm);
+    }
 }
