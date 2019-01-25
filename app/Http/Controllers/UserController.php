@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\User;
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserDeleted;
 
 class UserController extends Controller
 {
@@ -36,8 +38,12 @@ class UserController extends Controller
 
     public function delete($id)
     {
-        $confirm = User::find($id)->forceDelete();
-        
+        $user = User::find($id); 
+        $confirm = $user->forceDelete();
+
+        if ($confirm){
+            Mail::to($user)->send(new UserDeleted($user));
+        }
         return response()->json($confirm);
     }
 }

@@ -6,6 +6,8 @@ use Tests\TestCase;
 use Illuminate\Foundation\Testing\WithFaker;
 use Illuminate\Foundation\Testing\RefreshDatabase;
 use App\{User, Post, Comment};
+use Illuminate\Support\Facades\Mail;
+use App\Mail\UserDeleted;
 
 class UserTest extends TestCase
 {
@@ -77,6 +79,19 @@ class UserTest extends TestCase
         $this->assertDatabaseMissing('users', ['id' => $user->id,]);
         $this->assertDatabaseMissing('posts', ['id' => $post->id,]);
         $this->assertDatabaseMissing('comments', ['id' => $comment->id,]);
+    }
+
+    public function test_email_sent_to_deleted_user()
+    {
+        $user = factory(User::class)->create(['id' => 1,]);
+        
+        Mail::fake();
+        Mail::assertNothingSent();
+
+        Mail::assertSent(UserDeleted::class, function ($mail) use ($user) {
+            return $mail->hasTo($user->email) &&
+                   $mail->user->id === $user->id;
+        });
     }
 
 }
