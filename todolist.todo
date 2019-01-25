@@ -13,6 +13,6 @@ user:
     ✔ delete @done(19-01-25 20:27)
         ✔ cascade delete associated posts @started(19-01-25 20:27) @done(19-01-25 20:43) @lasted(16m8s)
         ✔ and comments when deleting user @done (25/01/2019, 21:17:30)
-        ☐ send email confirming deletion @started(19-01-25 21:19)
-            ✔ use template provided @done (1/25/2019, 10:55:34 PM)
-            ☐ email should be stored in laravel.log instead of sent            
+        ✔ send email confirming deletion @started(19-01-25 21:19) @done (1/25/2019, 11:17:24 PM)
+            ✔ use template provided @done (1/25/2019, 11:17:29 PM)
+            ✔ email should be stored in laravel.log instead of sent @done (1/25/2019, 11:17:34 PM)
