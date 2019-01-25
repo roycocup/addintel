@@ -1,7 +1,7 @@
 Posts:
-✔ Show all posts @started(19-01-22 19:48) @done (22/01/2019, 21:21:42)
+✔ Show all posts @done (22/01/2019, 21:21:42)
     ✔ with user information @done (22/01/2019, 21:55:01)
-✔ Show comments to posts @started(19-01-22 22:05) @done (22/01/2019, 22:21:29)
+✔ Show comments to posts @done (22/01/2019, 22:21:29)
     ✔ with user info @done (22/01/2019, 22:21:33)
 Show one post with:
     ✔ author @done (25/01/2019, 18:14:23)
@@ -9,10 +9,10 @@ Show one post with:
         ✔ comments with author @done (25/01/2019, 18:14:26)
 user:
     ✔ create @done(19-01-25 19:25)
-    ✔ update @started(19-01-25 19:25) @done(19-01-25 20:17) @lasted(52m29s)
+    ✔ update @done(19-01-25 20:17) 
     ✔ delete @done(19-01-25 20:27)
-        ✔ cascade delete associated posts @started(19-01-25 20:27) @done(19-01-25 20:43) @lasted(16m8s)
+        ✔ cascade delete associated posts @done(19-01-25 20:43)
         ✔ and comments when deleting user @done (25/01/2019, 21:17:30)
-        ✔ send email confirming deletion @started(19-01-25 21:19) @done (1/25/2019, 11:17:24 PM)
+        ✔ send email confirming deletion @done (1/25/2019, 11:17:24 PM)
             ✔ use template provided @done (1/25/2019, 11:17:29 PM)
             ✔ email should be stored in laravel.log instead of sent @done (1/25/2019, 11:17:34 PM)
