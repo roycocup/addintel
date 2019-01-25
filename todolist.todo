@@ -8,8 +8,8 @@ Show one post with:
     ✔ comments @done (25/01/2019, 18:14:25)
         ✔ comments with author @done (25/01/2019, 18:14:26)
 user:
-    ☐ create
-    ☐ update
+    ✔ create @done(19-01-25 19:25)
+    ☐ update @started(19-01-25 19:25)
     ☐ delete 
         ☐ cascade delete associated posts and comments when deleting user
         ☐ send email confirming deletion
