@@ -2,10 +2,11 @@
 
 use Illuminate\Database\Seeder;
 use App\User;
+use App\Post;
 use App\Comment;
 
 
-class PostSeeder extends Seeder
+class CommentSeeder extends Seeder
 {
     /**
      * Run the database seeds.
@@ -14,9 +15,9 @@ class PostSeeder extends Seeder
      */
     public function run()
     {
-        
-        factory(App\Post::class, 50)->create([
+        factory(Comment::class, 50)->create([
             'user_id' => factory(User::class)->create(),
+            'post_id' => factory(Post::class)->create(),
         ]);
     }
 }
